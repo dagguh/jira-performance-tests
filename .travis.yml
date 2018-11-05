@@ -4,7 +4,7 @@ jdk:
   - openjdk8
 
 script:
-  - ./gradlew testAcceptance --scan -s
+  - ./gradlew testAcceptance -s
 
 after_failure:
   - for jvm in $(jps -q); do echo "--- JSTACK FOR $jvm:"; jstack $jvm; done

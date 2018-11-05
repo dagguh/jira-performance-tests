@@ -109,6 +109,7 @@ tasks.withType(Test::class.java) {
     val shadowJarTask = tasks.getByPath(":reference-virtual-users:shadowJar")
     dependsOn(shadowJarTask)
     systemProperty("jpt.virtual-users.shadow-jar", shadowJarTask.outputs.files.files.first())
+    failFast = true
 }
 
 tasks["release"].dependsOn(testAcceptance)
