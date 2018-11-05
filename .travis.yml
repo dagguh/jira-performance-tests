@@ -5,3 +5,6 @@ jdk:
 
 script:
   - ./gradlew testAcceptance --scan -s
+
+after_failure:
+  - for jvm in $(jps -q); do echo "--- JSTACK FOR $jvm:"; jstack $jvm; done
